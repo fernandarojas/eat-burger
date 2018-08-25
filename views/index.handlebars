@@ -1,0 +1,57 @@
+<div class="containter-fluid">
+  <div class="jumbotron text-center">
+    <h1 class="mainText">Eat the Burger</h1>
+    <img src="https://img.clipartxtras.com/7e338e15812c7ed26c12ff66d689a31a_hamburger-png-vector-picture-gallery-yopriceville-high-sandwich-clipart-transparent-background_2238-1957.png" width="120" height="100">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-5 text-center p-4 mx-auto" id="burgerHolder">
+      <h2>Burgers to eat</h2>
+      <hr>
+        <div>
+          {{#each burgers}}
+            {{#unless devoured}}
+            <div id="burgerList" class="p-2">
+              {{burger_name}}
+              <button class="change-devoured btn btn-outline-dark" data-id="{{id}}" data-newdevoured="{{devoured}}">
+		          EAT
+	            </button>
+            </div>
+            {{/unless}}
+          {{/each}}
+        </div>
+    </div>
+    <div class="col-5 text-center p-4 mx-auto" id="burgerHolder">
+      <h2>Eaten Burgers</h2>
+      <hr>
+        <div>
+          {{#each burgers}}
+            {{#if devoured}}
+            <div id="burgerList" class="p-2">
+              {{burger_name}}
+              <button class="delete-burger btn btn-outline-dark" data-id="{{this.id}}">DELETE!</button>
+            </div> 
+            {{/if}}
+          {{/each}}
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row mx-auto">
+    <div class="col-6 text-center mx-auto mt-3 p-3" id="addBurger">
+      <h2>Add a Burger</h2>
+      <hr>
+        <form class="create-form">
+          <div class="form-group">
+            <label for="ca">Burger Name:</label>
+            <input type="text" id="ca" name="burger_name">
+          </div>
+        <button type="submit" class="btn btn-outline-dark">Add a Burger</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+
